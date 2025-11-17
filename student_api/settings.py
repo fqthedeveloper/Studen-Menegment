@@ -145,3 +145,19 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'YourDBName',
+        'USER': 'YourUser',
+        'PASSWORD': 'YourPassword',
+        'HOST': 'YourMSSQLServerIP',
+        'PORT': '1433',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'trustservercertificate': 'yes',
+        },
+    }
+}
