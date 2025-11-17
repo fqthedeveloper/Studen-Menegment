@@ -146,18 +146,19 @@ REST_FRAMEWORK = {
     ]
 }
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'YourDBName',
-        'USER': 'YourUser',
-        'PASSWORD': 'YourPassword',
-        'HOST': 'YourMSSQLServerIP',
-        'PORT': '1433',
-
+        'NAME': os.environ.get("DB_NAME"),
+        'USER': os.environ.get("DB_USER"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
+        'HOST': os.environ.get("DB_HOST"),
+        'PORT': os.environ.get("DB_PORT"),
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
             'trustservercertificate': 'yes',
-        },
+        }
     }
 }
