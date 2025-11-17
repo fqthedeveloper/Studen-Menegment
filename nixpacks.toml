@@ -1,0 +1,16 @@
+[phases.setup]
+aptPkgs = [
+  "curl",
+  "gnupg2",
+  "apt-transport-https",
+  "unixodbc-dev",
+  "unixodbc"
+]
+
+[phases.install]
+cmds = [
+  # Install ODBC Driver 17 for MSSQL
+  "curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list",
+  "apt-get update",
+  "ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools"
+]
